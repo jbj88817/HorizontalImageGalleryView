@@ -1,1 +1,3 @@
 # HorizontalImageGalleryView
+
+![Demo](demo.gif)
