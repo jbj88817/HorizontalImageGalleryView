@@ -19,6 +19,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.facebook.common.logging.FLog;
+import com.facebook.common.util.UriUtil;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.controller.BaseControllerListener;
 import com.facebook.drawee.controller.ControllerListener;
@@ -196,7 +197,12 @@ public class HorizontalImageGalleryView extends FrameLayout {
         };
 
         for (int i = 0; i < 7; i++) {
-            imageNet.add("");
+            Uri uri = new Uri.Builder()
+                    .scheme(UriUtil.LOCAL_RESOURCE_SCHEME) // "res"
+                    .path(String.valueOf(imageResIds[i]))
+                    .build();
+
+            imageNet.add(uri.toString());
         }
 
         imageViewList = new ArrayList<>();
